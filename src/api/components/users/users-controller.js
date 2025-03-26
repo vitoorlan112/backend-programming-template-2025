@@ -14,8 +14,8 @@ async function getUsers(request, response, next) {
 
 async function getUser(request, response, next, offset, limit) {
   try {
-    const offset = parseInt(req.query.offset) || 0;
-    const limit = parseInt(req.query.limit) || 10;
+    const offset = request.query.offset || 0;
+    const limit = request.query.limit || 10;
     const user = await usersService.getUser(request.params.id);
 
     if (!user) {

@@ -3,8 +3,8 @@ const { errorResponder, errorTypes } = require('../../../core/errors');
 
 async function getBooks(request, response, next) {
   try {
-    const offset = parseInt(req.query.offset) || 25;
-    const limit = parseInt(req.query.limit) || 10;
+    const offset = request.query.offset || 25;
+    const limit = request.query.limit || 10;
     const books = await booksService.getBooks();
 
     return response.status(200).json(books);
