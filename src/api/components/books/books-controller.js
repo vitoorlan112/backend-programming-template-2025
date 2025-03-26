@@ -5,7 +5,7 @@ async function getBooks(request, response, next) {
   try {
     const offset = request.query.offset || 25;
     const limit = request.query.limit || 10;
-    const books = await booksService.getBooks();
+    const books = await booksService.getBooks(offset, limit);
 
     return response.status(200).json(books);
   } catch (error) {
